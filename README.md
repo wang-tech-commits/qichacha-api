@@ -29,6 +29,29 @@ return $qichacha->fuzzySearch('企业名称');
 return $qichacha->searchWide('企业名称');
 // 企业工商数据查询(企业工商详情)
 return $qichacha->getBasicDetailsByName('企业名称');
+// 获取工商快照
+return $qichacha->getEciImage('企业名称');
+```
+
+### 2.信息核验查询
+
+```php
+<?php
+
+use MrwangTc\QichachaApi\MessageVerify;
+
+$config = [
+    'key'       => 'key',
+    'SecretKey' => 'secret',
+    'domain'    => 'http://api.qichacha.com',
+];
+// 初始化配置
+$qichacha = new MessageVerify($config);
+
+// 企业工商模糊搜索
+return $qichacha->eCIInfoVerify('企业名称');
+// 企业工商数据查询(多维度查询)
+return $qichacha->eCIThreeElVerify('统一社会信用代码', '企业名称', '法人名称');
 ```
 
 ## 陆续更新中……
