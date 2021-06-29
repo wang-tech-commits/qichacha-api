@@ -42,6 +42,22 @@ class BaseApi
         $this->config = new Config($config);
     }
 
+    protected function methodGetDopost($url, $params)
+    {
+        try {
+            $this->getHeader();
+            $this->getParams($params);
+            $Client   = new Client();
+            $response = $Client->get($url, ['query' => $this->params, 'headers' => $this->headers]);
+            $result   = $response->getBody()->getContents();
+
+            return $result;
+        } catch (\Exception $e) {
+            $check = preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $e->getmessage(), $cn_name);
+            throw new HttpException($cn_name, $e->getCode(), $e);
+        }
+    }
+
     public function getHeader()
     {
         $this->getToken();
@@ -67,20 +83,6 @@ class BaseApi
         $array = Helper::arrPrepend($params, $key, 'key');
 
         $this->params = $array;
-    }
-
-    protected function methodGetDopost($url)
-    {
-        try {
-            $Client   = new Client();
-            $response = $Client->get($url, ['query' => $this->params, 'headers' => $this->headers]);
-            $result   = $response->getBody()->getContents();
-
-            return $result;
-        } catch (\Exception $e) {
-            $check = preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $e->getmessage(), $cn_name);
-            throw new HttpException($cn_name, $e->getCode(), $e);
-        }
     }
 
     /**

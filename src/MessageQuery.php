@@ -27,11 +27,9 @@ class MessageQuery extends BaseApi
      */
     public function fuzzySearch($title)
     {
-        $this->getHeader();
-        $params = ['searchKey' => $title];
-        $this->getParams($params);
+        $params         = ['searchKey' => $title];
         $url            = $this->config['domain'] . '/FuzzySearch/GetList';
-        $this->baseData = $this->methodGetDopost($url);
+        $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();
     }
@@ -47,11 +45,9 @@ class MessageQuery extends BaseApi
      */
     public function searchWide($title)
     {
-        $this->getHeader();
-        $params = ['keyword' => $title];
-        $this->getParams($params);
+        $params         = ['keyword' => $title];
         $url            = $this->config['domain'] . '/ECIV4/SearchWide';
-        $this->baseData = $this->methodGetDopost($url);
+        $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();
     }
@@ -67,11 +63,27 @@ class MessageQuery extends BaseApi
      */
     public function getBasicDetailsByName($title)
     {
-        $this->getHeader();
-        $params = ['keyword' => $title];
-        $this->getParams($params);
+        $params         = ['keyword' => $title];
         $url            = $this->config['domain'] . '/ECIV4/GetBasicDetailsByName';
-        $this->baseData = $this->methodGetDopost($url);
+        $this->baseData = $this->methodGetDopost($url, $params);
+
+        return $this->getData();
+    }
+
+    /**
+     * Notes   : 获取工商快照
+     * @Date   : 2021/6/29 13:49
+     * @Author : Mr.wang
+     * @param $title
+     * @return mixed
+     * @throws \MrwangTc\QichachaApi\Exceptions\HttpException
+     * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
+     */
+    public function getEciImage($title)
+    {
+        $params         = ['keyWord' => $title];
+        $url            = $this->config['domain'] . '/ECIImage/GetEciImage';
+        $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();
     }
