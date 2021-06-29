@@ -72,18 +72,15 @@ class BaseApi
     protected function getToken()
     {
         $key         = $this->config['key'];
-        $SecretKey   = $this->config['SecretKey'];
-        $token       = Helper::stringUpper(md5($key . time() . $SecretKey));
-        $this->token = $token;
+        $secretKey   = $this->config['SecretKey'];
+        $this->token = Helper::stringUpper(md5($key . time() . $secretKey));
     }
 
     protected function getParams($params)
     {
         $key = $this->config['key'];
 
-        $array = Helper::arrPrepend($params, $key, 'key');
-
-        $this->params = $array;
+        $this->params = Helper::arrPrepend($params, $key, 'key');
     }
 
     /**
