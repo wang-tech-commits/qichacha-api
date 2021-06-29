@@ -30,4 +30,28 @@ class MessageVerify extends BaseApi
         return $this->getData();
     }
 
+    /**
+     * Notes   : 企业三要素核验
+     * @Date   : 2021/6/29 16:23
+     * @Author : Mr.wang
+     * @param $creditCode 统一社会信用代码
+     * @param $companyName 企业名称
+     * @param $operName 法人名称
+     * @return mixed
+     * @throws \MrwangTc\QichachaApi\Exceptions\HttpException
+     * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
+     */
+    public function eCIThreeElVerify($creditCode, $companyName, $operName)
+    {
+        $params         = [
+            'creditCode'  => $creditCode,
+            'companyName' => $companyName,
+            'operName'    => $operName,
+        ];
+        $url            = '/ECIThreeElVerify/GetInfo';
+        $this->baseData = $this->methodGetDopost($url, $params);
+
+        return $this->getData();
+    }
+
 }
