@@ -45,7 +45,7 @@ class MessageQuery extends BaseApi
      * @throws \MrwangTc\QichachaApi\Exceptions\HttpException
      * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
      */
-    public function SearchWide($title)
+    public function searchWide($title)
     {
         $this->getHeader();
         $params = ['keyword' => $title];
@@ -65,7 +65,7 @@ class MessageQuery extends BaseApi
      * @throws \MrwangTc\QichachaApi\Exceptions\HttpException
      * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
      */
-    public function GetBasicDetailsByName($title)
+    public function getBasicDetailsByName($title)
     {
         $this->getHeader();
         $params = ['keyword' => $title];
