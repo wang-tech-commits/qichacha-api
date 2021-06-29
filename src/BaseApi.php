@@ -58,7 +58,7 @@ class BaseApi
         }
     }
 
-    public function getHeader()
+    protected function getHeader()
     {
         $this->getToken();
 
@@ -76,7 +76,7 @@ class BaseApi
         $this->token = $token;
     }
 
-    public function getParams($params)
+    protected function getParams($params)
     {
         $key = $this->config['key'];
 
