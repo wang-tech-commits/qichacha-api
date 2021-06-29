@@ -28,7 +28,7 @@ class MessageQuery extends BaseApi
     public function fuzzySearch($title)
     {
         $params         = ['searchKey' => $title];
-        $url            = $this->config['domain'] . '/FuzzySearch/GetList';
+        $url            = '/FuzzySearch/GetList';
         $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();
@@ -46,7 +46,7 @@ class MessageQuery extends BaseApi
     public function searchWide($title)
     {
         $params         = ['keyword' => $title];
-        $url            = $this->config['domain'] . '/ECIV4/SearchWide';
+        $url            = '/ECIV4/SearchWide';
         $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();
@@ -64,7 +64,7 @@ class MessageQuery extends BaseApi
     public function getBasicDetailsByName($title)
     {
         $params         = ['keyword' => $title];
-        $url            = $this->config['domain'] . '/ECIV4/GetBasicDetailsByName';
+        $url            = '/ECIV4/GetBasicDetailsByName';
         $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();
@@ -82,7 +82,7 @@ class MessageQuery extends BaseApi
     public function getEciImage($title)
     {
         $params         = ['keyWord' => $title];
-        $url            = $this->config['domain'] . '/ECIImage/GetEciImage';
+        $url            = '/ECIImage/GetEciImage';
         $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();

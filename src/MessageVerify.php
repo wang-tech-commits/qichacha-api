@@ -24,7 +24,7 @@ class MessageVerify extends BaseApi
     public function eCIInfoVerify($title)
     {
         $params         = ['searchKey' => $title];
-        $url            = $this->config['domain'] . '/ECIInfoVerify/GetInfo';
+        $url            = '/ECIInfoVerify/GetInfo';
         $this->baseData = $this->methodGetDopost($url, $params);
 
         return $this->getData();

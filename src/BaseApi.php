@@ -48,7 +48,8 @@ class BaseApi
             $this->getHeader();
             $this->getParams($params);
             $Client   = new Client();
-            $response = $Client->get($url, ['query' => $this->params, 'headers' => $this->headers]);
+            $response = $Client->get($this->config['domain'] . $url,
+                ['query' => $this->params, 'headers' => $this->headers]);
             $result   = $response->getBody()->getContents();
 
             return $result;
