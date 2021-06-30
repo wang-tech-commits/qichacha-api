@@ -48,7 +48,7 @@ class Api
     {
         $url            = Domain::domainMethod($name);
         $params         = Params::paramsMethod($name, $arguments);
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         try {
             return $this->getData();
