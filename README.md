@@ -49,9 +49,9 @@ $config = [
 $qichacha = new MessageVerify($config);
 
 // 企业工商模糊搜索
-return $qichacha->eCIInfoVerify('企业名称');
-// 企业工商数据查询(多维度查询)
-return $qichacha->eCIThreeElVerify('统一社会信用代码', '企业名称', '法人名称');
+return $qichacha->eciInfoVerify('企业名称');
+// 企业三要素核验
+return $qichacha->eciThreeElVerify('统一社会信用代码', '企业名称', '法人名称');
 ```
 
 ## 陆续更新中……

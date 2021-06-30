@@ -21,7 +21,7 @@ class MessageVerify extends BaseApi
      * @throws \MrwangTc\QichachaApi\Exceptions\HttpException
      * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
      */
-    public function eCIInfoVerify($title)
+    public function eciInfoVerify($title)
     {
         $params         = ['searchKey' => $title];
         $url            = '/ECIInfoVerify/GetInfo';
@@ -41,7 +41,7 @@ class MessageVerify extends BaseApi
      * @throws \MrwangTc\QichachaApi\Exceptions\HttpException
      * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
      */
-    public function eCIThreeElVerify($creditCode, $companyName, $operName)
+    public function eciThreeElVerify($creditCode, $companyName, $operName)
     {
         $params         = [
             'creditCode'  => $creditCode,
