@@ -176,4 +176,16 @@ class Params
         return ['searchKey' => $args[0]];
     }
 
+    /**
+     * Notes   : 限制高消费核查
+     * @Date   : 2021/6/30 17:17
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function sumptuaryCheck($args)
+    {
+        return ['searchKey' => $args[0]];
+    }
+
 }
