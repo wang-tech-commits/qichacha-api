@@ -18,7 +18,6 @@ use MrwangTc\QichachaApi\MessageQuery;
 $config = [
     'key'       => 'key',
     'SecretKey' => 'secret',
-    'domain'    => 'http://api.qichacha.com',
 ];
 // 初始化配置
 $qichacha = new MessageQuery($config);
@@ -43,7 +42,6 @@ use MrwangTc\QichachaApi\MessageVerify;
 $config = [
     'key'       => 'key',
     'SecretKey' => 'secret',
-    'domain'    => 'http://api.qichacha.com',
 ];
 // 初始化配置
 $qichacha = new MessageVerify($config);
@@ -52,6 +50,31 @@ $qichacha = new MessageVerify($config);
 return $qichacha->eciInfoVerify('企业名称');
 // 企业三要素核验
 return $qichacha->eciThreeElVerify('统一社会信用代码', '企业名称', '法人名称');
+```
+
+### 3.风险识别查询
+
+```php
+use MrwangTc\QichachaApi\RiskIdentify;
+$config = [
+    'key'       => 'key',
+    'SecretKey' => 'secret',
+];
+// 初始化配置
+$qichacha = new RiskIdentify($config);
+
+// 企业工商风险扫描(全项)
+return $qichacha->eciInfoOverview('企业名称');
+// 企业自身风险扫描
+return $qichacha->companySelfRiskCount('企业名称');
+// 失信核查
+return $qichacha->shiXinCheck('企业名称');
+// 经营异常核查
+return $qichacha->exceptionCheck('企业名称');
+// 税收违法核查
+return $qichacha->taxIllegalCheck('企业名称');
+// 行政处罚核查
+return $qichacha->adminPenaltyCheck('企业名称');
 ```
 
 ## 陆续更新中……
