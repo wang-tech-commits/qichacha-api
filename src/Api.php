@@ -5,6 +5,8 @@ namespace MrwangTc\QichachaApi;
 use GuzzleHttp\Client;
 use MrwangTc\QichachaApi\Exceptions\HttpException;
 use MrwangTc\QichachaApi\Exceptions\InvalidArgumentException;
+use MrwangTc\QichachaApi\Factory\Domain;
+use MrwangTc\QichachaApi\Factory\Params;
 use MrwangTc\QichachaApi\Support\Config;
 use MrwangTc\QichachaApi\Support\Helper;
 
@@ -15,7 +17,7 @@ use MrwangTc\QichachaApi\Support\Helper;
  * Class BaseApi
  * @package MrwangTc\QichachaApi
  */
-class BaseApi
+class Api
 {
 
     protected $config;
@@ -40,6 +42,40 @@ class BaseApi
         }
         $config['domain'] = $this->domain;
         $this->config     = new Config($config);
+    }
+
+    public function __call($name, $arguments)
+    {
+        $url            = Domain::domainMethod($name);
+        $params         = Params::paramsMethod($name, $arguments);
+        $this->baseData = $this->methodGetDopost($url, $params);
+
+        try {
+            return $this->getData();
+        } catch (InvalidArgumentException $e) {
+            throw new HttpException('数据错误');
+        }
+    }
+
+    /**
+     * Notes   : 整合各种不同的数据
+     * @Date   : 2021/6/30 10:46
+     * @Author : Mr.wang
+     * @return mixed
+     * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
+     */
+    protected function getData()
+    {
+        if (is_array($this->baseData)) {
+            #todo 未知问题
+        } else {
+            $array = json_decode($this->baseData);
+            if ($array->Status != 200) {
+                throw new InvalidArgumentException($array->Message, $array->Status);
+            } else {
+                return $array->Result;
+            }
+        }
     }
 
     protected function methodGetHttp($url, $params)
@@ -80,27 +116,6 @@ class BaseApi
         $key = $this->config['key'];
 
         $this->params = Helper::arrPrepend($params, $key, 'key');
-    }
-
-    /**
-     * Notes   : 整合各种不同的数据
-     * @Date   : 2021/6/30 10:46
-     * @Author : Mr.wang
-     * @return mixed
-     * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
-     */
-    protected function getData()
-    {
-        if (is_array($this->baseData)) {
-            #todo 未知问题
-        } else {
-            $array = json_decode($this->baseData);
-            if ($array->Status != 200) {
-                throw new InvalidArgumentException($array->Message, $array->Status);
-            } else {
-                return $array->Result;
-            }
-        }
     }
 
 }
