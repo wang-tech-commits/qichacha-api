@@ -25,7 +25,7 @@ class RiskIdentify extends BaseApi
     {
         $params         = ['searchKey' => $title];
         $url            = '/ECIInfoOverview/GetInfo';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }
@@ -43,7 +43,7 @@ class RiskIdentify extends BaseApi
     {
         $params         = ['searchKey' => $title];
         $url            = '/CompanySelfRiskCount/GetInfo';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }

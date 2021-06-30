@@ -29,7 +29,7 @@ class MessageQuery extends BaseApi
     {
         $params         = ['searchKey' => $title];
         $url            = '/FuzzySearch/GetList';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }
@@ -47,7 +47,7 @@ class MessageQuery extends BaseApi
     {
         $params         = ['keyword' => $title];
         $url            = '/ECIV4/SearchWide';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }
@@ -65,7 +65,7 @@ class MessageQuery extends BaseApi
     {
         $params         = ['keyword' => $title];
         $url            = '/ECIV4/GetBasicDetailsByName';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }
@@ -83,7 +83,7 @@ class MessageQuery extends BaseApi
     {
         $params         = ['keyWord' => $title];
         $url            = '/ECIImage/GetEciImage';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }

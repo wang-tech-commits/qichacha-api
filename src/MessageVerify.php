@@ -25,7 +25,7 @@ class MessageVerify extends BaseApi
     {
         $params         = ['searchKey' => $title];
         $url            = '/ECIInfoVerify/GetInfo';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }
@@ -49,7 +49,7 @@ class MessageVerify extends BaseApi
             'operName'    => $operName,
         ];
         $url            = '/ECIThreeElVerify/GetInfo';
-        $this->baseData = $this->methodGetDopost($url, $params);
+        $this->baseData = $this->methodGetHttp($url, $params);
 
         return $this->getData();
     }

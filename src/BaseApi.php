@@ -42,7 +42,7 @@ class BaseApi
         $this->config     = new Config($config);
     }
 
-    protected function methodGetDopost($url, $params)
+    protected function methodGetHttp($url, $params)
     {
         try {
             $this->getHeader();
