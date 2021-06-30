@@ -84,7 +84,7 @@ class BaseApi
 
     /**
      * Notes   : 整合各种不同的数据
-     * @Date   : 2021/6/29 11:34
+     * @Date   : 2021/6/30 10:46
      * @Author : Mr.wang
      * @return mixed
      * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
