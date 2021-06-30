@@ -28,6 +28,8 @@ class BaseApi
 
     protected $params   = [];
 
+    protected $domain   = 'http://api.qichacha.com';
+
     public function __construct(array $config)
     {
         if (empty($config['key'])) {
@@ -36,10 +38,8 @@ class BaseApi
         if (empty($config['SecretKey'])) {
             throw new InvalidArgumentException('应用SecretKey不能为空', 104);
         }
-        if (empty($config['domain'])) {
-            throw new InvalidArgumentException('接口地址没配置', 104);
-        }
-        $this->config = new Config($config);
+        $config['domain'] = $this->domain;
+        $this->config     = new Config($config);
     }
 
     protected function methodGetDopost($url, $params)
@@ -50,11 +50,10 @@ class BaseApi
             $Client   = new Client();
             $response = $Client->get($this->config['domain'] . $url,
                 ['query' => $this->params, 'headers' => $this->headers]);
-            $result   = $response->getBody()->getContents();
 
-            return $result;
+            return $response->getBody()->getContents();
         } catch (\Exception $e) {
-            $check = preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $e->getmessage(), $cn_name);
+            preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $e->getmessage(), $cn_name);
             throw new HttpException($cn_name, $e->getCode(), $e);
         }
     }
