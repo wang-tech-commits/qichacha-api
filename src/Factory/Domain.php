@@ -22,6 +22,7 @@ class Domain
         'taxIllegalCheck'       => '/TaxIllegalCheck/GetList',  // 税收违法核查
         'adminPenaltyCheck'     => '/AdminPenaltyCheck/GetList',  // 行政处罚核查
         'sumptuaryCheck'        => '/SumptuaryCheck/GetList',  // 限制高消费核查
+        'SeriousIllegalCheck'   => '/SeriousIllegalCheck/GetList',  // 严重违法核查
     ];
 
     public static function domainMethod($args)

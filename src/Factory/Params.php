@@ -188,4 +188,16 @@ class Params
         return ['searchKey' => $args[0]];
     }
 
+    /**
+     * Notes   : 严重违法核查
+     * @Date   : 2021/7/1 14:52
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function SeriousIllegalCheck($args)
+    {
+        return ['searchKey' => $args[0]];
+    }
+
 }
