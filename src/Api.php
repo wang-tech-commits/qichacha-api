@@ -53,28 +53,7 @@ class Api
         try {
             return $this->getData();
         } catch (InvalidArgumentException $e) {
-            throw new HttpException('数据错误');
-        }
-    }
-
-    /**
-     * Notes   : 整合各种不同的数据
-     * @Date   : 2021/6/30 10:46
-     * @Author : Mr.wang
-     * @return mixed
-     * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
-     */
-    protected function getData()
-    {
-        if (is_array($this->baseData)) {
-            #todo 未知问题
-        } else {
-            $array = json_decode($this->baseData);
-            if ($array->Status != 200) {
-                throw new InvalidArgumentException($array->Message, $array->Status);
-            } else {
-                return $array->Result;
-            }
+            throw new InvalidArgumentException('数据错误');
         }
     }
 
@@ -111,11 +90,32 @@ class Api
         $this->token = Helper::stringUpper(md5($key . time() . $secretKey));
     }
 
-    protected function getParams($params)
+    protected function getParams(array $params)
     {
         $key = $this->config['key'];
 
         $this->params = Helper::arrPrepend($params, $key, 'key');
+    }
+
+    /**
+     * Notes   : 整合各种不同的数据
+     * @Date   : 2021/6/30 10:46
+     * @Author : Mr.wang
+     * @return mixed
+     * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
+     */
+    protected function getData()
+    {
+        if (is_array($this->baseData)) {
+            #todo 未知问题
+        } else {
+            $array = json_decode($this->baseData);
+            if ($array->Status != 200) {
+                throw new InvalidArgumentException($array->Message, $array->Status);
+            } else {
+                return $array->Result;
+            }
+        }
     }
 
 }
