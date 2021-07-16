@@ -3,12 +3,9 @@
 namespace MrwangTc\QichachaApi;
 
 use GuzzleHttp\Client;
-use MrwangTc\QichachaApi\Exceptions\HttpException;
-use MrwangTc\QichachaApi\Exceptions\InvalidArgumentException;
-use MrwangTc\QichachaApi\Factory\Domain;
-use MrwangTc\QichachaApi\Factory\Params;
-use MrwangTc\QichachaApi\Support\Config;
-use MrwangTc\QichachaApi\Support\Helper;
+use MrwangTc\QichachaApi\Exceptions\{HttpException, InvalidArgumentException};
+use MrwangTc\QichachaApi\Factory\{Domain, Params};
+use MrwangTc\QichachaApi\Support\{Config, Helper};
 
 /**
  * Notes    : 接口基础
