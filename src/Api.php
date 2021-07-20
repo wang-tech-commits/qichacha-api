@@ -27,7 +27,7 @@ class Api
 
     protected $params   = [];
 
-    protected $domain   = 'http://api.qichacha.com';
+    protected $domain   = 'http://api.qichacha.com/';
 
     public function __construct(array $config)
     {

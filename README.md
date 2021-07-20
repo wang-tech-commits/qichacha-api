@@ -44,6 +44,14 @@ return $qichacha->exceptionCheck('企业名称');
 return $qichacha->taxIllegalCheck('企业名称');
 // 行政处罚核查
 return $qichacha->adminPenaltyCheck('企业名称');
+// 限制高消费核查
+return $qichacha->sumptuaryCheck('企业名称');
+// 严重违法核查
+return $qichacha->seriousIllegalCheck('企业名称');
+// 清算核查
+return $qichacha->liquidationCheck('企业名称');
+// 简易注销核查
+return $qichacha->simpleCancelCheck('企业名称');
 ```
 
 ## 陆续更新中……

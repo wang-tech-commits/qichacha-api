@@ -23,7 +23,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function fuzzySearch($args)
+    protected static function fuzzySearch($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -35,7 +35,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function searchWide($args)
+    protected static function searchWide($args): array
     {
         return ['keyword' => $args[0]];
     }
@@ -47,7 +47,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function getBasicDetailsByName($args)
+    protected static function getBasicDetailsByName($args): array
     {
         return ['keyword' => $args[0]];
     }
@@ -59,7 +59,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function getEciImage($args)
+    protected static function getEciImage($args): array
     {
         return ['keyWord' => $args[0]];
     }
@@ -71,7 +71,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function eciInfoVerify($args)
+    protected static function eciInfoVerify($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -83,7 +83,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function legalProcCheck($args)
+    protected static function legalProcCheck($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -95,7 +95,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function eciThreeElVerify($args)
+    protected static function eciThreeElVerify($args): array
     {
         return [
             'creditCode'  => $args[0],
@@ -111,7 +111,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function eciInfoOverview($args)
+    protected static function eciInfoOverview($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -123,7 +123,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function companySelfRiskCount($args)
+    protected static function companySelfRiskCount($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -135,7 +135,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function shiXinCheck($args)
+    protected static function shiXinCheck($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -147,7 +147,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function exceptionCheck($args)
+    protected static function exceptionCheck($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -159,7 +159,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function taxIllegalCheck($args)
+    protected static function taxIllegalCheck($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -171,7 +171,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function adminPenaltyCheck($args)
+    protected static function adminPenaltyCheck($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -183,7 +183,7 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function sumptuaryCheck($args)
+    protected static function sumptuaryCheck($args): array
     {
         return ['searchKey' => $args[0]];
     }
@@ -195,7 +195,31 @@ class Params
      * @param $args
      * @return array
      */
-    protected static function SeriousIllegalCheck($args)
+    protected static function seriousIllegalCheck($args): array
+    {
+        return ['searchKey' => $args[0]];
+    }
+
+    /**
+     * Notes   : 清算核查
+     * @Date   : 2021/7/20 17:04
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function liquidationCheck($args): array
+    {
+        return ['searchKey' => $args[0]];
+    }
+
+    /**
+     * Notes   : 简易注销核查
+     * @Date   : 2021/7/20 17:07
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function simpleCancelCheck($args): array
     {
         return ['searchKey' => $args[0]];
     }
