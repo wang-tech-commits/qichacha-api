@@ -52,6 +52,14 @@ return $qichacha->seriousIllegalCheck('企业名称');
 return $qichacha->liquidationCheck('企业名称');
 // 简易注销核查
 return $qichacha->simpleCancelCheck('企业名称');
+// 注销备案核查
+return $qichacha->offFilingCheck('企业名称');
+// 欠税公告核查
+return $qichacha->taxOweNoticeCheck('企业名称');
+// 股权冻结核查
+return $qichacha->equityFreezeCheck('企业名称');
+// 股权质押核查
+return $qichacha->stockRightPledgeCheck('企业名称');
 ```
 
 ## 陆续更新中……
