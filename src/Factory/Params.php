@@ -224,4 +224,52 @@ class Params
         return ['searchKey' => $args[0]];
     }
 
+    /**
+     * Notes   : 注销备案核查
+     * @Date   : 2021/7/21 17:10
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function offFilingCheck($args): array
+    {
+        return ['searchKey' => $args[0]];
+    }
+
+    /**
+     * Notes   : 欠税公告核查
+     * @Date   : 2021/7/21 17:14
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function taxOweNoticeCheck($args): array
+    {
+        return ['searchKey' => $args[0]];
+    }
+
+    /**
+     * Notes   : 股权冻结核查
+     * @Date   : 2021/7/21 17:20
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function equityFreezeCheck($args): array
+    {
+        return ['searchKey' => $args[0]];
+    }
+
+    /**
+     * Notes   : 股权质押核查
+     * @Date   : 2021/7/21 17:22
+     * @Author : Mr.wang
+     * @param $args
+     * @return array
+     */
+    protected static function stockRightPledgeCheck($args): array
+    {
+        return ['searchKey' => $args[0]];
+    }
+
 }

@@ -25,6 +25,10 @@ class Domain
         'seriousIllegalCheck'   => 'SeriousIllegalCheck/GetList',  // 严重违法核查
         'liquidationCheck'      => 'LiquidationCheck/GetDetail',  // 清算核查
         'simpleCancelCheck'     => 'SimpleCancelCheck/GetInfo',  // 简易注销核查
+        'offFilingCheck'        => 'OffFilingCheck/GetList',  // 注销备案核查
+        'taxOweNoticeCheck'     => 'TaxOweNoticeCheck/GetList',  // 欠税公告核查
+        'equityFreezeCheck'     => 'EquityFreezeCheck/GetList',  // 股权冻结核查
+        'stockRightPledgeCheck' => 'StockRightPledgeCheck/GetList',  // 股权质押核查
     ];
 
     public static function domainMethod($args)
