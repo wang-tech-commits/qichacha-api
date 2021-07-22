@@ -115,4 +115,42 @@ class Api
         }
     }
 
+    /**
+     * Notes   : 营业执照识别
+     * @Date   : 2021/7/22 14:06
+     * @Author : Mr.wang
+     * @param $imageUrl
+     * @return mixed
+     * @throws \MrwangTc\QichachaApi\Exceptions\HttpException
+     * @throws \MrwangTc\QichachaApi\Exceptions\InvalidArgumentException
+     */
+    public function imageRecognitionCompare($imageUrl)
+    {
+        $url            = 'ImageRecognitionCompare/GetInfo';
+        $params         = ['imageUrl' => $imageUrl];
+        $this->baseData = $this->methodPostHttp($url, $params);
+
+        try {
+            return $this->getData();
+        } catch (InvalidArgumentException $e) {
+            throw new InvalidArgumentException('数据错误');
+        }
+    }
+
+    protected function methodPostHttp($url, $params)
+    {
+        try {
+            $this->getHeader();
+            $this->getParams($params);
+            $Client   = new Client();
+            $response = $Client->post($this->config['domain'] . $url,
+                ['query' => $this->params, 'headers' => $this->headers]);
+
+            return $response->getBody()->getContents();
+        } catch (\Exception $e) {
+            preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $e->getmessage(), $cn_name);
+            throw new HttpException($cn_name, $e->getCode(), $e);
+        }
+    }
+
 }

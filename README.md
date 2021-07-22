@@ -60,6 +60,9 @@ return $qichacha->taxOweNoticeCheck('企业名称');
 return $qichacha->equityFreezeCheck('企业名称');
 // 股权质押核查
 return $qichacha->stockRightPledgeCheck('企业名称');
+// 营业执照识别
+return $qichacha->imageRecognitionCompare('营业执照地址');
+
 ```
 
 ## 陆续更新中……
